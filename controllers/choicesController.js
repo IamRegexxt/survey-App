@@ -2,6 +2,7 @@
 const Choice = require('../models/choicesModel');
 
 module.exports = {
+  
   getAllChoicesByQuestionId: async (req, res) => {
     try {
       const { questionId } = req.params;

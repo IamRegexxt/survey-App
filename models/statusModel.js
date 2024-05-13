@@ -15,7 +15,7 @@ class Status {
   static async create(status) {
     const { name, value } = status;
     const [result] = await db.query('INSERT INTO status (name, value) VALUES (?, ?)', [name, value]);
-    return result.insertId;
+    return result.id;
   }
 
   static async update(id, status) {

@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const questionsController = require('../controllers/questionsController');
 
-router.get('/', questionsController.getAllQuestions);
-router.post('/', questionsController.createQuestion);
-router.get('/:id', questionsController.getQuestionById);
-router.put('/:id', questionsController.updateQuestion);
-router.delete('/:id', questionsController.deleteQuestion);
+router.get('/questions', questionsController.getAllQuestions);
+router.post('/question', questionsController.createQuestion);
+router.get('/question/:id', questionsController.getQuestionById);
+router.put('/question/:id', questionsController.updateQuestion);
+router.delete('/question/:id', questionsController.deleteQuestion);
 
 module.exports = router;

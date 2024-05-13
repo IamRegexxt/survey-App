@@ -20,7 +20,7 @@ class Scale {
   static async create(scale) {
     const { description, value, question_id } = scale;
     const [result] = await db.query('INSERT INTO scale (description, value, question_id) VALUES (?, ?, ?)', [description, value, question_id]);
-    return result.insertId;
+    return result.id;
   }
 
   static async update(id, scale) {

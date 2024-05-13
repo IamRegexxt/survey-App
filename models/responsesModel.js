@@ -10,7 +10,7 @@ class Responses {
   static async create(response) {
     const { question_id, answers } = response;
     const [result] = await db.query('INSERT INTO responses (question_id, answers) VALUES (?, ?)', [question_id, answers]);
-    return result.insertId;
+    return result.id;
   }
 }
 

@@ -14,7 +14,7 @@ class Category {
 
   static async create(name) {
     const [result] = await db.query('INSERT INTO categories (name) VALUES (?)', [name]);
-    return result.insertId;
+    return result.id;
   }
 
   static async update(id, name) {

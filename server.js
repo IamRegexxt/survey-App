@@ -14,23 +14,23 @@ app.use(loggerMiddleware);
 // Routes
 const questionsRoutes = require('./routes/questionsRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
-const choicesRoutes = require('./routes/choicesRoutes');
-const commentsRoutes = require('./routes/commentsRoutes');
-const userMasterlistRoutes = require('./routes/userMasterlistRoutes');
-const statusRoutes = require('./routes/statusRoutes');
-const scaleRoutes = require('./routes/scaleRoutes');
-const instructionsRoutes = require('./routes/instructionsRoutes');
-const responsesRoutes = require('./routes/responsesRoutes');
+// const choicesRoutes = require('./routes/choicesRoutes');
+// const commentsRoutes = require('./routes/commentsRoutes');
+// const userMasterlistRoutes = require('./routes/userMasterlistRoutes');
+// const statusRoutes = require('./routes/statusRoutes');
+// const scaleRoutes = require('./routes/scaleRoutes');
+// const instructionsRoutes = require('./routes/instructionsRoutes');
+// const responsesRoutes = require('./routes/responsesRoutes');
 
 app.use('/questions', questionsRoutes);
 app.use('/categories', categoryRoutes);
-app.use('/choices', choicesRoutes);
-app.use('/comments', commentsRoutes);
-app.use('/user-masterlist', userMasterlistRoutes);
-app.use('/status', statusRoutes);
-app.use('/scale', scaleRoutes);
-app.use('/instructions', instructionsRoutes);
-app.use('/responses', responsesRoutes);
+// app.use('/choices', choicesRoutes);
+// app.use('/comments', commentsRoutes);
+// app.use('/user-masterlist', userMasterlistRoutes);
+// app.use('/status', statusRoutes);
+// app.use('/scale', scaleRoutes);
+// app.use('/instructions', instructionsRoutes);
+// app.use('/responses', responsesRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -44,4 +44,4 @@ app.use((req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));

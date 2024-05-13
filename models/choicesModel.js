@@ -9,7 +9,7 @@ class Choice {
 
   static async create(questionId, optionn) {
     const [result] = await db.query('INSERT INTO choices (question_id, optionn) VALUES (?, ?)', [questionId, optionn]);
-    return result.insertId;
+    return result.id;
   }
 
   static async update(id, optionn) {

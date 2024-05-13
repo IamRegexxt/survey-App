@@ -10,7 +10,7 @@ class Comment {
   static async create(comment) {
     const { question_id, content } = comment;
     const [result] = await db.query('INSERT INTO comments (question_id, comment) VALUES (?, ?)', [question_id, content]);
-    return result.insertId;
+    return result.id;
   }
 
   static async update(id, comment) {

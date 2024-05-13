@@ -10,7 +10,7 @@ class Instructions {
   static async create(instruction) {
     const { description, question_id } = instruction;
     const [result] = await db.query('INSERT INTO instructions (description, question_id) VALUES (?, ?)', [description, question_id]);
-    return result.insertId;
+    return result.id;
   }
 }
 

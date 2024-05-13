@@ -29,7 +29,9 @@ module.exports = {
     try {
       const categoryId = await Category.create(req.body.name);
       res.status(201).json({ id: categoryId });
+      
     } catch (error) {
+      console.log(error)
       res.status(500).json({ error: error.message });
     }
   },

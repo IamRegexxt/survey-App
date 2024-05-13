@@ -28,7 +28,8 @@ module.exports = {
   createQuestion: async (req, res) => {
     try {
       const questionId = await Question.create(req.body);
-      res.status(201).json({ id: questionId });
+      console.log("Question created successfully");
+      res.status(201).json({ id: questionId });      
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

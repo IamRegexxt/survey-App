@@ -15,7 +15,7 @@ class UserMasterlist {
   static async create(user) {
     const { email, status_id } = user;
     const [result] = await db.query('INSERT INTO user_masterlist (email, status_id) VALUES (?, ?)', [email, status_id]);
-    return result.insertId;
+    return result.id;
   }
 
   static async update(id, user) {
