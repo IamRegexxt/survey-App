@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 const statusController = require('../controllers/statusController');
 
-router.get('/', statusController.getAllStatuses);
-router.get('/:id', statusController.getStatusById);
-router.post('/', statusController.createStatus);
-router.put('/:id', statusController.updateStatus);
-router.delete('/:id', statusController.deleteStatus);
+router.get('/status', statusController.getAllStatuses);
+router.get('/status/:id', statusController.getStatusById);
+router.post('/status', statusController.createStatus);
+router.put('/status/:id', statusController.updateStatus);
+router.delete('/status/:id', statusController.deleteStatus);
 
 module.exports = router;

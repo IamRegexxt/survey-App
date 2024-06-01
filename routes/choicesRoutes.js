@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router();
 const choicesController = require('../controllers/choicesController');
 
-router.get('/question/:questionId', choicesController.getAllChoicesByQuestionId);
-router.post('/question/:questionId', choicesController.createChoice);
-router.put('/:id', choicesController.updateChoice);
-router.delete('/:id', choicesController.deleteChoice);
+router.get('/choice/:questionId', choicesController.getAllChoicesByQuestionId);
+router.post('/choice/:questionId', choicesController.createChoice);
+router.put('/choice/:id', choicesController.updateChoice);
+router.delete('/choice/:id', choicesController.deleteChoice);
 
 module.exports = router;

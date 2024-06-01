@@ -2,19 +2,20 @@
 const db = require('./db');
 
 class Comment {
-  static async getAllByQuestionId(questionId) {
-    const [rows] = await db.query('SELECT * FROM comments WHERE question_id = ?', [questionId]);
+  static async getAllByResponseId(responseId) {
+    const [rows] = await db.query('SELECT * FROM comments WHERE response_id = ?', [responseId]);
     return rows;
   }
 
   static async create(comment) {
-    const { question_id, content } = comment;
-    const [result] = await db.query('INSERT INTO comments (question_id, comment) VALUES (?, ?)', [question_id, content]);
+    const { comment: content, response_id } = comment;
+    const [result] = await db.query('INSERT INTO comments (response_id, comment) VALUES (?, ?)', [response_id, content]);
     return result.id;
   }
 
   static async update(id, comment) {
-    const { content } = comment;
+    const { comment: content } = comment;
+    console.log(id, content);
     const [result] = await db.query('UPDATE comments SET comment = ? WHERE id = ?', [content, id]);
     return result.affectedRows > 0;
   }

@@ -2,10 +2,10 @@
 const Comment = require('../models/commentModel');
 
 module.exports = {
-  getAllCommentsByQuestionId: async (req, res) => {
+  getAllCommentsByResponseId: async (req, res) => {
     try {
-      const { questionId } = req.params;
-      const comments = await Comment.getAllByQuestionId(questionId);
+      const { responseId } = req.params;
+      const comments = await Comment.getAllByResponseId(responseId);
       res.json(comments);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -24,6 +24,7 @@ module.exports = {
   updateComment: async (req, res) => {
     try {
       const { id } = req.params;
+      console.log(req.params, req.body);
       const updated = await Comment.update(id, req.body);
       if (updated) {
         res.json({ message: 'Comment updated successfully' });
