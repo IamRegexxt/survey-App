@@ -19,8 +19,8 @@ const commentsRoutes = require('./routes/commentsRoutes');
 const userMasterlistRoutes = require('./routes/userMasterlistRoutes');
 const statusRoutes = require('./routes/statusRoutes');
 const scaleRoutes = require('./routes/scaleRoutes');
-// const instructionsRoutes = require('./routes/instructionsRoutes');
-// const responsesRoutes = require('./routes/responsesRoutes');
+const instructionsRoutes = require('./routes/instructionsRoutes');
+const responsesRoutes = require('./routes/responsesRoutes');
 
 app.use('/questions', questionsRoutes);
 app.use('/categories', categoryRoutes);
@@ -29,8 +29,8 @@ app.use('/comments', commentsRoutes);
 app.use('/user-masterlist', userMasterlistRoutes);
 app.use('/status', statusRoutes);
 app.use('/scales', scaleRoutes);
-// app.use('/instructions', instructionsRoutes);
-// app.use('/responses', responsesRoutes);
+app.use('/instructions', instructionsRoutes);
+app.use('/responses', responsesRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

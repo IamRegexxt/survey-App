@@ -2,10 +2,9 @@
 const Instructions = require('../models/instructionsModel');
 
 module.exports = {
-  getByQuestionId: async (req, res) => {
+  getAllInstructions: async (req, res) => {
     try {
-      const { questionId } = req.params;
-      const instruction = await Instructions.getByQuestionId(questionId);
+      const instruction = await Instructions.getAll();
       if (instruction) {
         res.json(instruction);
       } else {

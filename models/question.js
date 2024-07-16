@@ -12,14 +12,14 @@ class Question {
   }
 
   static async create(question) {
-    const { question: text, category_id } = question;
-    const [result] = await db.query('INSERT INTO questions ( question, category_id) VALUES ( ?, ?)', [text, category_id]);
+    const { question: text, category_id, question_type } = question;
+    const [result] = await db.query('INSERT INTO questions ( question, category_id, question_type) VALUES ( ?, ?, ?)', [text, category_id, question_type]);
     return result.id;
   }
 
   static async update(id, question) {
-    const { question: text, category_id } = question;
-    const [result] = await db.query('UPDATE questions SET question = ?, category_id = ? WHERE id = ?', [text, category_id, id]);
+    const { question: text, category_id, question_type } = question;
+    const [result] = await db.query('UPDATE questions SET question = ?, category_id = ?, question_type = ? WHERE id = ?', [text, category_id, question_type, id]);
     return result.affectedRows > 0;
   }
 

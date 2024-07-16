@@ -2,13 +2,17 @@
 const db = require('./db');
 
 class Choice {
+  static async getAll() {
+    const [rows] = await db.query('SELECT * FROM choices');
+    return rows;
+  }
   static async getAllByQuestionId(questionId) {
     const [rows] = await db.query('SELECT * FROM choices WHERE question_id = ?', [questionId]);
     return rows;
   }
 
   static async create(questionId, optionn) {
-    const [result] = await db.query('INSERT INTO choices (question_id, optionn) VALUES (?, ?)', [questionId, optionn]);
+    const [result] = await db.query('INSERT INTO choices (optionn, question_id) VALUES (?, ?)', [optionn, questionId]);
     return result.id;
   }
 

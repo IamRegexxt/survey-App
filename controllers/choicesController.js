@@ -2,6 +2,15 @@
 const Choice = require('../models/choicesModel');
 
 module.exports = {
+
+  getAllChoices: async (req, res) => {
+    try {
+      const choices = await Choice.getAll();
+      res.json(choices);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
   
   getAllChoicesByQuestionId: async (req, res) => {
     try {
