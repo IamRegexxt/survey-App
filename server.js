@@ -7,11 +7,17 @@ const loggerMiddleware = require('./middleware/loggerMiddleware');
 const app = express();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:5174',  // your frontend origin
+  credentials: true, // allow credentials (cookies, authorization headers, etc.)
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(loggerMiddleware);
 
 // Routes
+
 const questionsRoutes = require('./routes/questionsRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const choicesRoutes = require('./routes/choicesRoutes');

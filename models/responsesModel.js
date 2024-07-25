@@ -7,6 +7,11 @@ class Responses {
     return rows;
   }
 
+  static async getAll() {
+    const [rows] = await db.query('SELECT * FROM responses');
+    return rows;
+  }
+
   static async create(response) {
     const { question_id, answers } = response;
     const [result] = await db.query('INSERT INTO responses (question_id, answers) VALUES (?, ?)', [question_id, answers]);

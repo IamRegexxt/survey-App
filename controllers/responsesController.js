@@ -2,6 +2,15 @@
 const Responses = require('../models/responsesModel');
 
 module.exports = {
+  getAllReponses: async (req, res) => {
+    try {
+      const responses = await Responses.getAll();
+      res.json(responses);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+  
   getByQuestionId: async (req, res) => {
     try {
       const { questionId } = req.params;
