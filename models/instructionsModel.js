@@ -8,8 +8,8 @@ class Instructions {
   }
 
   static async create(instruction) {
-    const { description } = instruction;
-    const [result] = await db.query('INSERT INTO instructions (description) VALUES (?)', [description]);
+    const { instruction: description, category_id } = instruction;
+    const [result] = await db.query('INSERT INTO instructions (description, category_id) VALUES (?)', [description, category_id]);
     return result.id;
   }
 }
